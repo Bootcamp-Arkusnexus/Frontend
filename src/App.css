@@ -1,5 +1,15 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global styles */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .app-container {
-  font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
   background-color: #f9f9f9;
@@ -10,13 +20,21 @@
   font-size: 2rem;
   color: #333;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
-/* Barra de búsqueda y filtro */
-.filters {
-  margin-bottom: 20px;
+/* Centered Search & CRUD bar */
+.top-bar {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+/* Search bar and filters */
+.filters {
+  display: flex;
   gap: 10px;
 }
 
@@ -27,6 +45,7 @@
   border-radius: 5px;
   border: 1px solid #ddd;
   width: 200px;
+  font-weight: 400;
 }
 
 .search-input::placeholder,
@@ -34,9 +53,10 @@
   color: #aaa;
 }
 
-/* Botones CRUD */
+/* CRUD buttons */
 .crud-buttons {
-  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
 }
 
 .crud-button {
@@ -47,22 +67,23 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .crud-button:hover {
   background-color: #120f15ce;
+  transform: scale(1.05);
 }
 
-/* Tabla */
+/* Table */
 .styled-table {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   border-collapse: collapse;
   font-size: 1rem;
   background-color: #ffffff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  table-layout: auto;
 }
 
 .styled-table thead tr {
@@ -71,23 +92,79 @@
   text-align: left;
 }
 
-.styled-table th, .styled-table td {
+.styled-table th,
+.styled-table td {
   padding: 12px 15px;
   border: 1px solid #ddd;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.styled-table tbody tr {
-  border-bottom: 1px solid #ddd;
+/* Checkboxes Column */
+.checkbox-column {
+  text-align: center;
+  width: 120px;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+.checkbox-column input {
+  transform: scale(1.2); /* Aumenta el tamaño del checkbox */
+  cursor: default;
 }
 
-.styled-table tbody tr:hover {
-  background-color: #f1f1f1;
+/* Reduce espacio de la columna Actions */
+.actions-column {
+  text-align: center;
+  width: 150px;
 }
 
-.styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #3a3141ab;
+/* Distribución equitativa de los botones */
+.action-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Estilos de los botones dentro de la tabla */
+.action-button {
+  flex: 1;
+  min-width: 60px;
+  padding: 8px 0;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  background-color: #dddddd;
+  color: #333;
+}
+
+.action-button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.action-button.delete {
+  background-color: #d9534f;
+  color: white;
+}
+
+.action-button.delete:hover {
+  background-color: #c9302c;
+}
+
+/* No results message */
+.no-data {
+  text-align: center;
+  padding: 15px;
+  font-style: italic;
+  color: #666;
+}
+
+/* Navigation button */
+.navigation-button {
+  margin-top: 20px;
 }
