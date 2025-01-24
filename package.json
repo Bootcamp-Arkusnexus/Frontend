@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -b && vite build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
