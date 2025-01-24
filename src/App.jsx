@@ -40,7 +40,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://backend-production-c3c1.up.railway.app/users",
+        "https://backend-production-429b.up.railway.app/users",
         {
           method: "POST",
           body: JSON.stringify(userData),
