@@ -69,8 +69,10 @@ body {
 /* Table styles */
 .table-container {
   width: 100%;
+  max-width: 100%; /* Asegura que en pantallas grandes se mantenga al 100% */
   overflow-x: auto;
 }
+
 
 table {
   width: 100%;
@@ -120,7 +122,7 @@ input[type="checkbox"] {
 
 .full-width-table {
   width: 100%;
-  table-layout: auto;
+  table-layout: fixed; /* Cambiar auto a fixed */
 }
 
 .table-container {
