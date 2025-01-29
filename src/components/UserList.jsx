@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import '../styles/App.css';
+import React, { useState, useMemo } from "react";
+import '../styles/Buttons.css';
+import '../styles/Table.css';
 
 export const UserList = ({ users, onEdit, onDelete, onView }) => {
   const [sortConfig, setSortConfig] = useState({ key: '', direction: 'asc' });
 
-  // Función para ordenar los datos
-  const sortedUsers = React.useMemo(() => {
+  const sortedUsers = useMemo(() => {
     let sortableUsers = [...users];
     if (sortConfig.key) {
       sortableUsers.sort((a, b) => {
@@ -21,7 +21,6 @@ export const UserList = ({ users, onEdit, onDelete, onView }) => {
     return sortableUsers;
   }, [users, sortConfig]);
 
-  // Función para manejar el cambio de orden
   const requestSort = (key) => {
     let direction = 'asc';
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
@@ -53,8 +52,8 @@ export const UserList = ({ users, onEdit, onDelete, onView }) => {
       </thead>
       <tbody>
         {sortedUsers.map((user) => (
-          <tr key={user.id} style={{ cursor: 'pointer' }}>
-            <td>
+          <tr key={user.id}>
+            <td className="table-status">
               <input
                 type="checkbox"
                 checked={user.is_active_mind}
@@ -62,14 +61,14 @@ export const UserList = ({ users, onEdit, onDelete, onView }) => {
                 disabled
               />
             </td>
-            <td onClick={() => onEdit(user)}>{user.full_name}</td>
-            <td onClick={() => onEdit(user)}>{user.role}</td>
-            <td onClick={() => onEdit(user)}>{user.level}</td>
-            <td onClick={() => onEdit(user)}>{user.city_of_residence}</td>
-            <td onClick={() => onEdit(user)}>{formatDate(user.mt_entry_date)}</td>
+            <td onClick={() => onEdit(user)} style={{ cursor: 'pointer' }}>{user.full_name}</td>
+            <td>{user.role}</td>
+            <td>{user.level}</td>
+            <td>{user.city_of_residence}</td>
+            <td>{formatDate(user.mt_entry_date)}</td>
             <td>
-              <button onClick={() => onView(user)}>View</button>
-              <button onClick={() => onDelete(user.id)}>Delete</button>
+              <button className="view-button" onClick={() => onView(user)}>View</button>
+              <button className="delete-button" onClick={() => onDelete(user.id)}>Delete</button>
             </td>
           </tr>
         ))}

@@ -6,6 +6,7 @@ import { UserForm } from "./components/UserForm";
 import { Header } from "./components/Header";
 import { Modal } from "./components/Modal";
 import './styles/App.css';
+import './styles/Buttons.css';
 import { Pagination } from "./components/Pagination";
 
 const App = () => {
@@ -143,14 +144,15 @@ const App = () => {
         currentPage={currentPage}
       />
 
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <h2>{modalMode === "add" ? "Add New User" : modalMode === "edit" ? "Edit User" : "View User"}</h2>
+      <Modal isOpen={isModalOpen} onClose={closeModal}
+      title={modalMode === "add" ? "Add New User" : modalMode === "edit" ? "Edit User" : "View User"}>
         <UserForm
           user={modalMode === "add" ? {} : selectedUser}
           onSubmit={modalMode === "add" ? handleAddUser : handleEditUser}
           onClose={closeModal}
           isOpen={isModalOpen}
           isDisabled={modalMode === "view"}
+          modalMode={modalMode}
         />
       </Modal>
     </div>

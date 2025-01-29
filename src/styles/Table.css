@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.user-table th, .user-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.user-table th {
+  background-color: #5ca28c;
+  color: white;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:hover {
+  background-color: #e8f4ff;
+}
+
+.user-table th:not(:last-child),
+.user-table td:not(:last-child) {
+  padding-right: 20px;
+}
+
+.user-table .table-status {
+  text-align: center;
+  vertical-align: middle;
+}

@@ -1,4 +1,4 @@
-import '../styles/App.css';
+import '../styles/Filters.css';
 
 
 export const Filters = ({ users, filterRole, setFilterRole, filterLevel, setFilterLevel, filterResidence, setFilterResidence }) => (
