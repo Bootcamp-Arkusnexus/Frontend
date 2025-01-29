@@ -1,5 +1,4 @@
-import '../styles/App.css';
-
+import '../styles/Buttons.css';
 
 export const Header = ({ search, setSearch }) => (
   <header className="header">
